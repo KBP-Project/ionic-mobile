@@ -4,15 +4,15 @@
   </ion-app>
 </template>
 
-<script lang="ts">
-import { IonApp, IonRouterOutlet } from '@ionic/vue';
+<script>
+import { IonApp, loadingController, IonRouterOutlet } from '@ionic/vue';
 
 import db from './firebase/init.js';
 import { doc,getDoc,onSnapshot, updateDoc, collection, addDoc } from "firebase/firestore";
 
 export default {
   components: {
-    IonApp, IonRouterOutlet
+    IonApp, IonRouterOutlet, loadingController
   },
 
   data() {
@@ -29,12 +29,20 @@ export default {
 
       id_chat:0,
       flagNotif: false,
-
+      loading: null,
     }
   },
   
   methods: {
-
+    async openLoading(isLoading, message = "Loading ...") {
+      if(isLoading == true){
+        this.loading = await loadingController.create({
+            message: message,
+        });
+        this.loading.present();
+      }
+      if(isLoading == false) this.loading.dismiss();
+    },
   }
 }
 </script>

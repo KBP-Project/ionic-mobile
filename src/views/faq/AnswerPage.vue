@@ -8,7 +8,7 @@
                 <img src="../../assets/img/kbp_logo.png" alt="kbp_logo">
             </div>
 
-            <div class="text-wrap rounded-5 mb-3" :class="role == 'R2' ? 'bg-success' : 'bg-primary'" style="padding: 10px;">
+            <div class="text-wrap rounded-5 mb-3" :style="{ backgroundColor: role === 'R2' ? '#478111' : '#005ca1' }" style="padding: 10px;">
 
                 <div style="display: flex; align-items: center;">
 
@@ -38,9 +38,9 @@
 
     <div class="text-center mb-5">
         <div class="mx-auto p-2 btn-container">
-            <ion-button class="btn fw-bold rounded-5" color="primary" id="open-rating" expand="block" @click="openModalRating()">MEMBANTU</ion-button>
+            <ion-button class="btn fw-bold rounded-5" color="primary" id="open-rating" expand="block" @click="openModalRating()">FEEDBACK</ion-button>
 
-            <ion-button class="btn fw-bold rounded-5" color="danger" @click="chat()">TIDAK MEMBANTU</ion-button>
+            <ion-button class="btn fw-bold rounded-5" color="danger" @click="chat()">HUBUNGI KAMI</ion-button>
         </div>
     </div>
 
@@ -48,7 +48,7 @@
     <ion-modal :is-open="openRating" id="modal-rating" ref="modal">
         <div class="wrapper text-center">
             <h1>
-                <bold>FeedBack</bold>
+                <bold>Feedback</bold>
             </h1>
 
             <!-- Rating icon inline -->
@@ -215,8 +215,15 @@ export default {
     },
 
     methods: {
-        chat(){
-            this.$router.push("/chat");
+        chat() {
+            if (this.cat && this.cat.prioritas === "TEXT") {
+                this.$router.push("/chat");
+            } else if (this.cat && this.cat.prioritas === "CALL") {
+                const nomor_wa = this.cat.nomor_hp.replace(/\D/g, "");
+                const whatsappLink = "https://wa.me/62" + nomor_wa + "?text=Halo,%20bisa%20bantu%20saya";
+                window.location.href = whatsappLink;
+            }
+            // this.$router.push("/chat");x 
         },
         openModalRating() {
             const setLevel = this.masterRating.find(x => x.level == this.rating);
@@ -240,9 +247,7 @@ export default {
                 this.cat = data.data;
 
                 this.catList = data.data.answer_text.split(";");
-                console.log("aaaaaaaaaaaaaa");
                 console.log(this.cat);
-                console.log("aaaaaaaaaaaaaa");
                 console.log(this.cat.id);
                 this.$root.id_chat = this.cat.id;
             } catch (error) {
@@ -251,8 +256,6 @@ export default {
                 this.loading.dismiss();
             }
         },
-
-
 
         back: function () {
             this.$router.back();

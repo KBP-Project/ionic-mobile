@@ -8,7 +8,7 @@
                 <img src="../../assets/img/kbp_logo.png" alt="kbp_logo">
             </div>
 
-            <div class="rounded-5" :class="role == 'R2' ? 'bg-success' : 'bg-primary'"  style="padding: 10px;">
+            <div class="rounded-5" :style="{ backgroundColor: role === 'R2' ? '#478111' : '#005ca1' }"  style="padding: 10px;">
 
                 <div style="display: flex; align-items: center;" class="mb-4">
                     <div style="padding-right: 15px;">

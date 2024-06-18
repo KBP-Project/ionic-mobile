@@ -4,16 +4,16 @@
 
         <div class="container bg-light">
 
-            <div class="header mb-5 pt-4">
+            <div class="header mb-5 pt-5">
                 <img src="../../assets/img/kbp_logo.png" alt="kbp_logo">
             </div>
 
-            <div class="rounded-5" :class="role == 'R2' ? 'bg-success' : 'bg-primary'">
+            <div class="rounded-5" :style="{ backgroundColor: role === 'R2' ? '#478111' : '#005ca1' }">
                 <div class="ion-text-center mb-4">
-                    <div>
-                        <ion-icon class="ion-padding " style="font-size: 6rem; color: white" slot="icon-only" :md="personCircleSharp"></ion-icon>
+                    <div style="padding: 10px 0;">
+                        <img width="100" src="../../assets/img/kiara.png"></img>
                         <div>
-                            <ion-label style="font-size: 20px; color: white">HI BAPAK, {{ name }} </ion-label>
+                            <ion-label style="font-size: 20px; color: white">HI BAPAK {{ name }} </ion-label>
                         </div>
                     </div>
                 </div>

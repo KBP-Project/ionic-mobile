@@ -8,10 +8,12 @@ import HomePage from '../views/menu/HomePage.vue';
 import ProfilePage from '../views/menu/ProfilePage.vue';
 import UbahProfilePage from '../views/menu/UbahProfilePage.vue';
 import BantuanPage from '../views/menu/BantuanPage.vue';
-import FaqPage from '../views/menu/FaqPage.vue';
-import FaqSubPage from '../views/menu/FaqSubPage.vue';
-import AnswerPage from '../views/menu/AnswerPage.vue';
-import ChatPage from '../views/menu/ChatPage.vue';
+
+// faq
+import FaqPage from '../views/faq/FaqPage.vue';
+import FaqSubPage from '../views/faq/FaqSubPage.vue';
+import AnswerPage from '../views/faq/AnswerPage.vue';
+import ChatPage from '../views/faq/ChatPage.vue';
 
 // transaction
 import AbsensiPage from '../views/transaction/AbsensiPage.vue';

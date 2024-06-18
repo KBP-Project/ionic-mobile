@@ -47,7 +47,7 @@ button {
 .rounded-button {
     border: none;
     background: rgb(111, 71, 189);
-    background: linear-gradient(147deg, rgb(215, 172, 55) 50%, rgb(242, 207, 112) 100%);
+    background: linear-gradient(147deg, #137ecf 50%, #00135d 100%);
     color: #FFFFFF;
 }
 

@@ -5,7 +5,7 @@
             <div id="container">
                 <div class="login-container">
                     <div class="logos">
-                        <img src="@/assets/img/logo_mtg.png" />
+                        <img src="@/assets/img/kbp_logo_remake.png"  />
                     </div>
 
                     <div class="login-form">
@@ -153,7 +153,7 @@ export default {
                             position: 'top'
                         });
                         await toast.present();
-                        this.$router.replace('/dashboard', 'forward');
+                        this.$router.replace('/faq', 'forward');
                     }
                 }).catch(async (e) => {
                     loading.dismiss()
@@ -202,6 +202,7 @@ export default {
     top: -60px;
     left: calc((100% - 120px) / 2);
     padding: 1em;
+    font-size: 0px;
 }
 
 #container .login-container .logos>img {
